@@ -14,6 +14,7 @@ app.post('/repos', function (req, res) {
   // save the repo information in the database
   getRepo(req.body['username'], (err, results) => {
     if (err) {
+      console.log(err);
       res.status(404).send('Sorry, we cannot find that!');
     } else {
       db.save(JSON.parse(results));
