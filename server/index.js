@@ -15,9 +15,12 @@ app.post('/repos', function (req, res) {
   getRepo(req.body['username'], (err, results) => {
     if (err) {
       console.log(err);
-      res.status(404).send('Sorry, we cannot find that!');
     } else {
-      db.save(JSON.parse(results));
+      if (JSON.parse(results) instanceof Array) {
+        db.save(JSON.parse(results));
+      } else {
+        res.status(404).send('Sorry, we cannot find that!');
+      }
       res.redirect('/repos');
     }
   });
