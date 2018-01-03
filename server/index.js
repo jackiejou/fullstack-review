@@ -30,7 +30,7 @@ app.get('/cool', function(request, response) {
   response.send(cool());
 });
 
-let port = 1128;
+let port = process.env.PORT;
 
 app.listen(port, function() {
   console.log(`listening on port ${port}`);
