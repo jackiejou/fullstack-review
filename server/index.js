@@ -3,6 +3,7 @@ let app = express();
 const db = require('../database/index.js');
 const getRepo = require('../helpers/github.js').getReposByUsername;
 const bodyParser = require('body-parser');
+const cool = require('cool-ascii-faces');
 
 app.use(express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -23,6 +24,10 @@ app.get('/repos', function (req, res) {
   db.get((data) => {
     res.json(data);
   });
+});
+
+app.get('/cool', function(request, response) {
+  response.send(cool());
 });
 
 let port = 1128;
