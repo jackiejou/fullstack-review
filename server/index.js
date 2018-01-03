@@ -20,8 +20,7 @@ app.post('/repos', function (req, res) {
         db.save(JSON.parse(results));
         res.redirect('/repos');
       } else {
-        res.status(404);
-        res.end('Sorry, we cannot find that!');
+        res.sendStatus(404);
       }
     }
   });
