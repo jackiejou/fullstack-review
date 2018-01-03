@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const moment = require('moment');
 
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/fetcher');
 
 let repoSchema = mongoose.Schema({
   repoid: Number,
