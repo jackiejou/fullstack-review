@@ -38,8 +38,8 @@ let save = (array) => {
 }
 
 let get = (callback) => {
-  Repo.find({}, null, {sort: {updated: -1}}, (err, repos) => {
-    callback(repos);
+  Repo.find({}).limit(25).sort({updated: -1}).exec((err, results) => {
+    callback(results);
   });
 };
 module.exports.save = save;

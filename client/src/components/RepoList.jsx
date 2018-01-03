@@ -15,7 +15,7 @@ const RepoList = (props) => (
         </tr>
       </thead>
       <tbody>
-      {props.repos.slice(0, 25).map((repo, index) =>
+      {props.repos.map((repo, index) =>
         <tr>
           <td>{index + 1}</td>
           <td>{repo.owner}</td>
