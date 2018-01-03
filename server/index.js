@@ -1,6 +1,6 @@
 const express = require('express');
 let app = express();
-const db = require('../database/index.js');
+// const db = require('../database/index.js');
 const getRepo = require('../helpers/github.js').getReposByUsername;
 const bodyParser = require('body-parser');
 const cool = require('cool-ascii-faces');
@@ -13,7 +13,7 @@ app.post('/repos', function (req, res) {
   // and get the repo information from the github API, then
   // save the repo information in the database
   getRepo(req.body['username'], (results) => {
-    db.save(JSON.parse(results));
+    // db.save(JSON.parse(results));
     res.redirect('/repos');
   });
 });
@@ -21,9 +21,9 @@ app.post('/repos', function (req, res) {
 app.get('/repos', function (req, res) {
   // TODO - your code here!
   // This route should send back the top 25 repos
-  db.get((data) => {
-    res.json(data);
-  });
+  // db.get((data) => {
+  //   res.json(data);
+  // });
 });
 
 app.get('/cool', function(request, response) {
