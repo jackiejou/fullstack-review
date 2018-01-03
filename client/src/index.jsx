@@ -15,7 +15,7 @@ class App extends React.Component {
 
   search (term) {
     console.log(`${term} was searched`);
-    $.post('/repos', {handle: term}, (data) => {
+    $.post('/repos', {username: term}, (data) => {
       this.setState({repos: data});
     })
   }
@@ -30,6 +30,5 @@ class App extends React.Component {
 }
 
 $.ajax('/repos').done(results => {
-  console.log(results);
   ReactDOM.render(<App data={results}/>, document.getElementById('app'));
 });
