@@ -18,7 +18,7 @@ class App extends React.Component {
     $.post('/repos', {username: term}, (data) => {
       this.setState({repos: data});
     }).fail(() => {
-      consoel.log('404');
+      console.log('404');
     });
   }
 
