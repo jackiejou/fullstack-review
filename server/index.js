@@ -1,18 +1,28 @@
 const express = require('express');
 let app = express();
+const db = require('../database/index.js');
+const getRepo = require('../helpers/github.js').getReposByUsername;
+const bodyParser = require('body-parser');
 
 app.use(express.static(__dirname + '/../client/dist'));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post('/repos', function (req, res) {
-  // TODO - your code here!
   // This route should take the github username provided
   // and get the repo information from the github API, then
   // save the repo information in the database
+  getRepo(req.body['handle'], (results) => {
+    db.save(JSON.parse(results));
+    res.redirect('/repos');
+  });
 });
 
 app.get('/repos', function (req, res) {
   // TODO - your code here!
   // This route should send back the top 25 repos
+  db.get((data) => {
+    res.json(data);
+  });
 });
 
 let port = 1128;
@@ -20,4 +30,3 @@ let port = 1128;
 app.listen(port, function() {
   console.log(`listening on port ${port}`);
 });
-
