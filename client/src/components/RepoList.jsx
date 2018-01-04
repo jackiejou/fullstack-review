@@ -16,7 +16,7 @@ const RepoList = (props) => (
       </thead>
       <tbody>
       {props.repos.map((repo, index) =>
-        <tr>
+        <tr key={index}>
           <td>{index + 1}</td>
           <td>{repo.owner}</td>
           <td><a href={repo.htmlurl}>{repo.name}</a></td>
