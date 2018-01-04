@@ -24,6 +24,9 @@ class App extends React.Component {
       success: (data) => {
         console.log('success');
         // this.setState({repos: data});
+        $.ajax('/repos').done(results => {
+          this.setState({repos: results});
+        });
       }
     });
   }
@@ -37,6 +40,4 @@ class App extends React.Component {
   }
 }
 
-$.ajax('/repos').done(results => {
-  ReactDOM.render(<App data={results}/>, document.getElementById('app'));
-});
+ReactDOM.render(<App />, document.getElementById('app'));
