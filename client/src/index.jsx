@@ -10,6 +10,7 @@ class App extends React.Component {
     this.state = {
       repos: [],
     }
+    console.log(this.state.repos);
   }
 
   search (term) {
