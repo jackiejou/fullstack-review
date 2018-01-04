@@ -7,10 +7,15 @@ import RepoList from './components/RepoList.jsx';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    console.log(3214532);
     this.state = {
       repos: [],
     };
+  }
+
+  componentDidMount(){
+    $.ajax('/repos').done(results => {
+      this.setState({repos: results});
+    });
   }
 
   search (term) {
@@ -25,9 +30,6 @@ class App extends React.Component {
       success: (data) => {
         this.setState({repos: data});
         console.log('success');
-        // $.ajax('/repos').done(results => {
-        //   this.setState({repos: results});
-        // });
       }
     });
   }
