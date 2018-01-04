@@ -17,7 +17,7 @@ app.post('/repos', function (req, res) {
       db.save(JSON.parse(results));
       res.redirect('/repos');
     }).catch((err) => {
-      res.sendStatus(404);
+      res.status(404).end(err.message);
     });
 });
 
