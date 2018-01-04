@@ -16,12 +16,12 @@ app.post('/repos', function (req, res) {
     if (err) {
       console.log(err);
     } else {
-      if (JSON.parse(results) instanceof Array) {
+      // if (JSON.parse(results) instanceof Array) {
         db.save(JSON.parse(results));
         res.redirect('/repos');
-      } else {
-        res.sendStatus(404);
-      }
+      // } else {
+      //   res.sendStatus(404);
+      // }
     }
   });
 });
