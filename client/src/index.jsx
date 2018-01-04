@@ -7,10 +7,10 @@ import RepoList from './components/RepoList.jsx';
 class App extends React.Component {
   constructor(props) {
     super(props);
+    console.log(3214532);
     this.state = {
       repos: [],
     };
-    console.log(this.state.repos);
   }
 
   search (term) {
