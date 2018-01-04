@@ -20,7 +20,7 @@ class App extends React.Component {
       data: {username: term},
       type: 'post',
       error: (err) => {
-        console.log(404, err);
+        console.log(err);
       },
       success: (data) => {
         this.setState({repos: data});
