@@ -23,11 +23,11 @@ class App extends React.Component {
         console.log('error');
       },
       success: (data) => {
+        this.setState({repos: data});
         console.log('success');
-        // this.setState({repos: data});
-        $.ajax('/repos').done(results => {
-          this.setState({repos: results});
-        });
+        // $.ajax('/repos').done(results => {
+        //   this.setState({repos: results});
+        // });
       }
     });
   }

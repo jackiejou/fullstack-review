@@ -15,7 +15,7 @@ app.post('/repos', function (req, res) {
   getRepo(req.body['username'])
     .then(results => {
       db.save(JSON.parse(results));
-      res.status(201).end();
+      res.redirect('/repos');
     }).catch((err) => {
       res.status(400).end(err.message);
     });
