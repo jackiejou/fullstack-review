@@ -25,7 +25,7 @@ class App extends React.Component {
       data: {username: term},
       type: 'post',
       error: (err) => {
-        console.log('error');
+        alert('username not on Github');
       },
       success: (data) => {
         this.setState({repos: data});
