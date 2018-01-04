@@ -1,6 +1,6 @@
 const request = require('request');
 
-let getReposByUsername = (username, callback) => {
+let getReposByUsername = username => {
   // TODO - Use the request module to request repos for a specific
   // user from the github API
 
@@ -13,12 +13,14 @@ let getReposByUsername = (username, callback) => {
       'Authorization': `token ${process.env.TOKEN}`,
     }
   };
-  request(options, (err, res, body) => {
-    if (err) {
-      callback(err, null);
-    } else {
-      callback(null, body);
-    }
+  return new Promise((resolve, reject) => {
+    request(options, (err, res, body) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(body);
+      }
+    });
   });
 }
 
