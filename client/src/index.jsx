@@ -9,7 +9,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       repos: [],
-    }
+    };
     console.log(this.state.repos);
   }
 
