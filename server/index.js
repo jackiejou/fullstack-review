@@ -23,7 +23,9 @@ app.post('/repos', function (req, res) {
 
 app.get('/repos', function (req, res) {
   // This route should send back the top 25 repos
-  db.get(res.json);
+  db.get((data) => {
+    res.json(data);
+  });
 });
 
 app.get('/cool', function(request, response) {
