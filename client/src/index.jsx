@@ -15,10 +15,16 @@ class App extends React.Component {
 
   search (term) {
     console.log(`${term} was searched`);
-    $.post('/repos', {username: term}, (data) => {
-      this.setState({repos: data});
-    }).fail(() => {
-      console.log('404');
+    $.ajax({
+      url: '/repos',
+      data: {username: term},
+      type: 'post',
+      error: () => {
+        console.log(404);
+      },
+      success: (data) => {
+        this.setState({repos: data});
+      }
     });
   }
 
