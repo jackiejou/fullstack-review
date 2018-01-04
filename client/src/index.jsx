@@ -23,7 +23,7 @@ class App extends React.Component {
       },
       success: (data) => {
         console.log('success');
-        this.setState({repos: data});
+        // this.setState({repos: data});
       }
     });
   }
