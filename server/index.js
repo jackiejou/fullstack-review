@@ -17,16 +17,13 @@ app.post('/repos', function (req, res) {
       db.save(JSON.parse(results));
       res.redirect('/repos');
     }).catch((err) => {
-      res.status(400).end('err.message');
+      res.status(400).end(err.message);
     });
 });
 
 app.get('/repos', function (req, res) {
-  // TODO - your code here!
   // This route should send back the top 25 repos
-  db.get((data) => {
-    res.json(data);
-  });
+  db.get(res.json);
 });
 
 app.get('/cool', function(request, response) {

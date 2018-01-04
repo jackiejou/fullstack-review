@@ -10,7 +10,6 @@ class App extends React.Component {
     this.state = {
       repos: this.props.data,
     }
-
   }
 
   search (term) {
