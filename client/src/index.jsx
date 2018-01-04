@@ -19,7 +19,7 @@ class App extends React.Component {
       url: '/repos',
       data: {username: term},
       type: 'post',
-      error: function(err) {
+      error: (err) => {
         console.log(err);
       },
       success: (data) => {
