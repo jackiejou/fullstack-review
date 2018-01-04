@@ -17,7 +17,7 @@ app.post('/repos', function (req, res) {
       db.save(JSON.parse(results));
       res.redirect('/repos');
     }).catch((err) => {
-      res.setContentType("text/plain"); 
+      // res.setContentType("text/plain"); 
       res.status(400).end(err.message);
     });
 });
