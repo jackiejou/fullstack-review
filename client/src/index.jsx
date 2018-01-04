@@ -25,6 +25,8 @@ class App extends React.Component {
       success: (data) => {
         this.setState({repos: data});
       }
+    }).fail((err) => {
+      console.log(err);
     });
   }
 
